@@ -24,6 +24,7 @@ const Auth = () => {
   const { user, signIn, signUp } = useAuth();
 
   useEffect(() => {
+    // Обновлять активную вкладку при изменении параметров URL
     if (tabParam === "register") {
       setActiveTab("register");
     } else if (tabParam === "login") {
@@ -31,11 +32,13 @@ const Auth = () => {
     }
   }, [tabParam]);
 
+  // Form data for login
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
 
+  // Form data for registration
   const [registerData, setRegisterData] = useState({
     username: "",
     email: "",
@@ -43,6 +46,7 @@ const Auth = () => {
     confirmPassword: "",
   });
 
+  // If user is already logged in, redirect to chats page
   if (user) {
     return <Navigate to="/chats" replace />;
   }
@@ -81,6 +85,7 @@ const Auth = () => {
 
     try {
       await signUp(registerData.email, registerData.password, registerData.username);
+      // After successful registration, switch to login tab
       setActiveTab("login");
     } catch (error) {
       console.error("Registration error:", error);

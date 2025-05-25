@@ -28,7 +28,7 @@ const Chats = () => {
   return (
     <AnimatedBackground>
       <div className="min-h-screen p-4">
-        {/**/}
+        {/* Header with user info and logout button */}
         <div className="flex items-center justify-end mb-6 p-3 glassmorphism rounded-lg">
           <div className="flex items-center mr-4">
             <Avatar className="mr-2">
@@ -48,7 +48,7 @@ const Chats = () => {
           </Button>
         </div>
         
-        {/* */}
+        {/* Chat container */}
         <div className="h-[80vh] glassmorphism rounded-xl overflow-hidden">
           <ChatInterface />
         </div>
